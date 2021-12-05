@@ -10,7 +10,10 @@ const server = express()
 
 const io = socketIO(server, {
     cors: {
-        origin: "https://metervara-socket-io-client.netlify.app"
+        origin: [
+            "https://metervara-socket-io-client-test.netlify.app",
+            "https://metervara-socket-io-client.netlify.app"
+        ]
     }
 });
 
