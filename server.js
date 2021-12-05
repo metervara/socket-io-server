@@ -12,7 +12,8 @@ const io = socketIO(server, {
     cors: {
         origin: [
             "https://metervara-socket-io-client-test.netlify.app",
-            "https://metervara-socket-io-client.netlify.app"
+            "https://metervara-socket-io-client.netlify.app",
+            "http://localhost:8080", // FOr local testing only, do not deploy with this
         ]
     }
 });
@@ -20,6 +21,11 @@ const io = socketIO(server, {
 io.on('connection', (socket) => {
     console.log('Client connected');
     socket.on('disconnect', () => console.log('Client disconnected'));
+
+    socket.on('message', (val) => {
+        console.log('Broadcast message', val)
+        io.emit('message', val)
+    });
 });
 
 /* Broadcast server time to clients */
