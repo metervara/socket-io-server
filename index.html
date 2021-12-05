@@ -1,26 +1,31 @@
 <html>
-  <head>
+
+<head>
+    <title>Socket.io client test</title>
     <script src="/socket.io/socket.io.js"></script>
     <script>
-      let socket = io();
-      let el;
+        let socket = io();
+        let el;
 
-      socket.on('time', (timeString) => {
-        el = document.getElementById('server-time');
-        el.innerHTML = 'Server time: ' + timeString;
-      });
+        socket.on('time', (timeString) => {
+            el = document.getElementById('server-time');
+            el.innerHTML = 'Server time: ' + timeString;
+        });
     </script>
-    <link rel="preconnect" href="https://fonts.googleapis.com"> 
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
     <style>
         html {
             font-family: 'Source Code Pro', monospace;
+            padding: 30px;
         }
-</style>
-  </head>
-  <body>
-      <h1>Socket.io test</h1>
+    </style>
+</head>
+
+<body>
+    <h1>Socket.io client test</h1>
     <p id="server-time"></p>
-  </body>
+</body>
+
 </html>
